@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.scss';
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
+import HomeIndex from './pages/home/index'
+import SingleIndex from './pages/single/index'
+import FourOFour from './pages/fourofour/fourOfour'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Router>
+       <Switch>
+         <Route exact path="/" component={HomeIndex} />
+         <Route exact path="/post/:id" component={SingleIndex} />
+         <Route path="*" component={FourOFour} />
+       </Switch>
+     </Router>
     </div>
   );
 }
